@@ -92,10 +92,8 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
         aki.win()
         aki = aki.first_guess
         query.message.edit_text(f"It's {aki['name']} ({aki['description']})! Was I correct?"),
-        reply_markup=AKI_WIN_BUTTON
+        reply_markup=AKI_WIN_BUTTON,
         )
-    else:    
-        del_data(context, user_id)
 
 
 def aki_win(update: Update, context: CallbackContext):
