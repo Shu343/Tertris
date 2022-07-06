@@ -74,14 +74,6 @@ def getLanguage(user_id: int) -> str:
     return my_col.find_one({"user_id": user_id})["aki_lang"]
 
 
-def getChildMode(user_id: int) -> int:
-    """
-    Get(Returns) the Child mode status of the user. (str)
-    """
-    my_col = my_db["users"]
-    return my_col.find_one({"user_id": user_id})["child_mode"]
-
-
 def getTotalGuess(user_id: int) -> int:
     """
     
