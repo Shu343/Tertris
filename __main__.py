@@ -119,7 +119,7 @@ def aki_me(update: Update, context: CallbackContext) -> None:
     user = getUser(user_id)
     update.message.reply_photo(photo= profile_pic, 
                                caption=ME_MSG.format(user['first_name'], 
-                                                     user["username"], 
+                                                     user["user_name"], 
                                                      user['user_id'],
                                                      AKI_LANG_CODE[user["aki_lang"]],                                                     getTotalGuess(user_id),
                                                      getCorrectGuess(user_id),
