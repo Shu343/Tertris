@@ -58,7 +58,7 @@ def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     context.user_data[f"q_{user_id}"] = q
     context.user_data[f"ques_{user_id}"] = 1
     msg.edit_text(
-        =q,
+        q,
         reply_markup=AKI_PLAY_KEYBOARD
         )
 
@@ -82,7 +82,7 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
     query.answer()
     if aki.progression < 80:
         query.message.edit_text(
-        =q,
+        q,
         reply_markup=AKI_PLAY_KEYBOARD
         )
         context.user_data[f"aki_{user_id}"] = aki
