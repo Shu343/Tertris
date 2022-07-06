@@ -3,7 +3,7 @@ import akinator
 from telegram.files.inputmedia import InputMediaPhoto
 from random import randint
 from pprint import pprint
-from keyboard import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON, START_KEYBOARD
+from keyboard import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON
 from telegram import Update, ParseMode
 from telegram.ext import Updater, CommandHandler, CallbackContext, CallbackQueryHandler
 from config import BOT_TOKEN
@@ -39,7 +39,7 @@ def aki_start(update: Update, context: CallbackContext) -> None:
     addUser(user_id, first_name, last_name, user_name)
     update.message.reply_text(START_MSG.format(first_name), 
                               parse_mode=ParseMode.HTML, 
-                              reply_markup=START_KEYBOARD)
+                              )
 
 
 def aki_find(update: Update, context: CallbackContext) -> None:
