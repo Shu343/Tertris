@@ -28,7 +28,7 @@ from database import (
 from strings import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
 import akinator
 
-teext = q
+TEEXT=q
 
 def aki_start(update: Update, context: CallbackContext) -> None:
     #/start command.
@@ -60,7 +60,7 @@ def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     context.user_data[f"q_{user_id}"] = q
     context.user_data[f"ques_{user_id}"] = 1
     msg.edit_text(
-        teext,
+        TEEXT,
         reply_markup=AKI_PLAY_KEYBOARD
         )
 
@@ -84,7 +84,7 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
     query.answer()
     if aki.progression < 80:
         query.message.edit_text(
-        teext,
+        TEEXT,
             ),
             reply_markup=AKI_PLAY_KEYBOARD
         )
@@ -111,11 +111,8 @@ def aki_win(update: Update, context: CallbackContext):
         )
         updateCorrectGuess(user_id=user_id, correct_guess=1)
     else:
-        query.message.edit_media(
-            InputMediaPhoto(
-            "bruh :("
-            ),
-            reply_markup=None
+        query.message.edit_text("bruh :("),
+        reply_markup=None
         )
         updateWrongGuess(user_id=user_id, wrong_guess=1)
 
