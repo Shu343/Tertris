@@ -28,6 +28,7 @@ from database import (
 from strings import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
 import akinator
 
+teext=q
 
 def aki_start(update: Update, context: CallbackContext) -> None:
     #/start command.
@@ -51,17 +52,15 @@ def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     #/play command.
     aki = akinator.Akinator()
     user_id = update.effective_user.id
-    msg = update.message.reply_photo(
-        photo=open('aki_pics/aki_01.png', 'rb'),
-        caption="Loading..."
+    msg = update.message.reply_text("Loading...")
     )
     updateTotalGuess(user_id, total_guess=1)
     q = aki.start_game(language=getLanguage(user_id), child_mode=getChildMode(user_id))
     context.user_data[f"aki_{user_id}"] = aki
     context.user_data[f"q_{user_id}"] = q
     context.user_data[f"ques_{user_id}"] = 1
-    msg.edit_caption(
-        caption=q,
+    msg.edit_text(
+        teext,
         reply_markup=AKI_PLAY_KEYBOARD
         )
 
@@ -84,10 +83,8 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
         q = aki.answer(a)
     query.answer()
     if aki.progression < 80:
-        query.message.edit_media(
-            InputMediaPhoto(
-                open(f'aki_pics/aki_0{randint(1,5)}.png', 'rb'),
-                caption=q,
+        query.message.edit_text(
+        teext,
             ),
             reply_markup=AKI_PLAY_KEYBOARD
         )
@@ -96,11 +93,7 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
     else:
         aki.win()
         aki = aki.first_guess
-        if aki['picture_path'] == 'none.jpg':
-            aki['absolute_picture_path'] = open('aki_pics/none.jpg', 'rb')
-        query.message.edit_media(
-            InputMediaPhoto(media=aki['absolute_picture_path'],
-            caption=f"It's {aki['name']} ({aki['description']})! Was I correct?"
+        query.message.edit_text(f"It's {aki['name']} ({aki['description']})! Was I correct?")
             ),
             reply_markup=AKI_WIN_BUTTON
         )
@@ -112,10 +105,7 @@ def aki_win(update: Update, context: CallbackContext):
     query = update.callback_query
     ans = query.data.split('_')[-1]
     if ans =='y':
-        query.message.edit_media(
-            InputMediaPhoto(
-                media=open('aki_pics/aki_win.png', 'rb'),
-                caption="gg!"
+        query.message.edit_text("gg!")
             ),
             reply_markup=None
         )
@@ -123,8 +113,7 @@ def aki_win(update: Update, context: CallbackContext):
     else:
         query.message.edit_media(
             InputMediaPhoto(
-                media=open('aki_pics/aki_defeat.png', 'rb'),
-                caption="bruh :("
+            "bruh :("
             ),
             reply_markup=None
         )
