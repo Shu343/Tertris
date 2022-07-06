@@ -123,12 +123,6 @@ def updateLanguage(user_id: int, lang_code: str) -> None:
     my_col.update_one({"user_id": user_id}, {"$set": {"aki_lang": lang_code}})
 
 
-def updateChildMode(user_id: int, mode: int) -> None:
-    """
-    Update Child Mode of the User.
-    """
-    my_db["users"].update_one({"user_id": user_id}, {"$set": {"child_mode": mode}})
-
 def updateTotalGuess(user_id: int, total_guess: int) -> None:
     """
     
