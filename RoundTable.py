@@ -1,4 +1,4 @@
-from strings import AKI_LANG_CODE
+from init import AKI_LANG_CODE
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
