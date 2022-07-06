@@ -9,7 +9,6 @@ from telegram.ext import Updater, CommandHandler, CallbackContext, CallbackQuery
 from config import BOT_TOKEN
 from database import (
     addUser, 
-    getChildMode, 
     getCorrectGuess, 
     getLanguage, 
     getLead, 
@@ -17,8 +16,7 @@ from database import (
     getTotalQuestions, 
     getUnfinishedGuess, 
     getUser, getWrongGuess, 
-    totalUsers, 
-    updateChildMode, 
+    totalUsers,  
     updateCorrectGuess, 
     updateLanguage, 
     updateTotalGuess, 
