@@ -126,7 +126,7 @@ def aki_me(update: Update, context: CallbackContext) -> None:
                                        getWrongGuess(user_id),
                                        getUnfinishedGuess(user_id),
                                        getTotalQuestions(user_id),
-                               parse_mode=ParseMode.MARKDOWN
+                                       parse_mode=ParseMode.MARKDOWN,
                               )
 
 
