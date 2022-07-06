@@ -3,7 +3,7 @@ import akinator
 from telegram.files.inputmedia import InputMediaPhoto
 from random import randint
 from pprint import pprint
-from keyboard import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON
+from RoudnTable import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON
 from telegram import Update, ParseMode
 from telegram.ext import Updater, CommandHandler, CallbackContext, CallbackQueryHandler
 from config import BOT_TOKEN
@@ -25,7 +25,7 @@ from database import (
     updateTotalQuestions, 
     updateWrongGuess)
 
-from strings import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
+from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
 import akinator
 
 
