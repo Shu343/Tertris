@@ -116,10 +116,11 @@ def aki_me(update: Update, context: CallbackContext) -> None:
         profile_pic = "https://telegra.ph/file/a65ee7219e14f0d0225a9.png"
     else:
         profile_pic = profile_pic[0][1]
-    user = getUser(user_id)
+    user_id = update.effective_user.user_id
+    first_name = update.effective_user.first_name
     update.message.reply_photo(photo= profile_pic, 
-                               caption=(first_name){</b> <code>{}</code} 
-                                       (user_id){</b> <code>{}</code}
+                               caption=first_name,
+                                       user_id,
                                        AKI_LANG_CODE[user["aki_lang"]],                                                     getTotalGuess(user_id),
                                        getCorrectGuess(user_id),
                                        getWrongGuess(user_id),
