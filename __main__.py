@@ -103,12 +103,11 @@ def aki_win(update: Update, context: CallbackContext):
     if ans =='y':
         query.message.edit_text("gg!")
         reply_markup=None
-        )
+    
         updateCorrectGuess(user_id=user_id, correct_guess=1)
     else:
         query.message.edit_text("bruh :("),
         reply_markup=None
-        )
         updateWrongGuess(user_id=user_id, wrong_guess=1)
 
 
