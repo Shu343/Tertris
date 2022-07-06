@@ -149,24 +149,6 @@ def aki_lang(update: Update, context: CallbackContext) -> None:
                                 reply_markup=AKI_LANG_BUTTON)
 
 
-def aki_childmode(update: Update, context: CallbackContext) -> None:
-    user_id = update.effective_user.id
-    status = "enabled" if getChildMode(user_id) else "disabled"
-    update.message.reply_text(
-        text=CHILDMODE_MSG.format(status),
-        parse_mode=ParseMode.HTML,
-        reply_markup=CHILDMODE_BUTTON
-    )
-
-
-def aki_set_child_mode(update: Update, context: CallbackContext) -> None:
-    user_id = update.effective_user.id
-    query = update.callback_query
-    to_set = int(query.data.split('_')[-1])
-    updateChildMode(user_id, to_set)
-    query.edit_message_text(f"Child mode is {'enabled' if to_set else 'disabled'} Successfully!")
-
-
 def del_data(context:CallbackContext, user_id: int):
     del context.user_data[f"aki_{user_id}"]
     del context.user_data[f"q_{user_id}"]
@@ -174,7 +156,7 @@ def del_data(context:CallbackContext, user_id: int):
 
 def aki_lead(update: Update, _:CallbackContext) -> None:
     update.message.reply_text(
-        text="Check Leaderboard on specific categories in Akinator.",
+        text="Check Leaderboard on specific categories in Tetris.",
         reply_markup=AKI_LEADERBOARD_KEYBOARD
     )
 
@@ -226,11 +208,9 @@ def main():
     dp.add_handler(CommandHandler('me', aki_me, run_async=True))
     dp.add_handler(CommandHandler('play', aki_play_cmd_handler, run_async=True))
     dp.add_handler(CommandHandler('language', aki_lang, run_async=True))
-    dp.add_handler(CommandHandler('childmode', aki_childmode, run_async=True))
     dp.add_handler(CommandHandler('leaderboard', aki_lead, run_async=True))
 
     dp.add_handler(CallbackQueryHandler(aki_set_lang, pattern=r"aki_set_lang_", run_async=True))
-    dp.add_handler(CallbackQueryHandler(aki_set_child_mode, pattern=r"c_mode_", run_async=True))
     dp.add_handler(CallbackQueryHandler(aki_play_callback_handler, pattern=r"aki_play_", run_async=True))
     dp.add_handler(CallbackQueryHandler(aki_win, pattern=r"aki_win_", run_async=True))
     dp.add_handler(CallbackQueryHandler(aki_lead_cb_handler, pattern=r"aki_lead_", run_async=True))
