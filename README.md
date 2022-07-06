@@ -1,12 +1,7 @@
 # Akinator-Bot
-A Telegram bot where you can play the Akinator Guessing game
-check out [Akinator](https://t.me/aki_akinator_bot) on Telegram.
+A Telegram bot where you can play the Guessing game
+check out [Tertris](https://t.me/TetrisfujikoRoboton) Telegram.
 
-# Deployments
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fadenosinetp10%2FAkinator-bot&template=https%3A%2F%2Fgithub.com%2Fadenosinetp10%2FAkinator-bot
-)
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fadenosinetp10%2FAkinator-Bot&envs=aki_mongo_host%2Cbot_token&aki_mongo_hostDesc=mongoDB+URI+for+accessing+database.&bot_tokenDesc=Telegram+Bot+token+obtained+from+BotFather&referralCode=9C9po6)
 
 ## Setting up the database
 
@@ -56,5 +51,3 @@ Akinator uses **MongoDB** by default to store the user stats such as number of g
 ## Credits
 
  1. [NinjaSnail1080's Akinator.py](https://github.com/NinjaSnail1080/akinator.py)
- 2. [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
- 3. [hellboi-atul](https://github.com/hellboi-atul) for heroku deploy button.
