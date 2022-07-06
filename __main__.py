@@ -51,7 +51,7 @@ def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
     msg = update.message.reply_text("Loading...")
     updateTotalGuess(user_id, total_guess=1)
-    q = aki.start_game(language=getLanguage(user_id), child_mode=getChildMode(user_id))
+    q = aki.start_game(language=getLanguage(user_id))
     context.user_data[f"aki_{user_id}"] = aki
     context.user_data[f"q_{user_id}"] = q
     context.user_data[f"ques_{user_id}"] = 1
