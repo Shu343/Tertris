@@ -1,8 +1,8 @@
 
 START_MSG = """
-Hello <b>{}</b> ! I'm <b>Akinator(Unofficial)</b>.
-We can play a guessing game.
-Do <code>/play</code>
+Hello <b>{}</b> ! I'm <b>Tetris</b>.
+I'll guess your character by some questions.
+Do /play 
 """
 
 ME_MSG = """
