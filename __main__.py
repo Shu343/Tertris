@@ -126,7 +126,7 @@ def aki_me(update: Update, context: CallbackContext) -> None:
                                        getUnfinishedGuess(user_id),
                                        getTotalQuestions(user_id),
                                        ),
-                               parse_mode=ParseMode.MARKDOWN)
+                               parse_mode=ParseMode.MARKDOWN
 
 
 def aki_set_lang(update: Update, context: CallbackContext) -> None:
