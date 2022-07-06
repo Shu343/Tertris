@@ -84,8 +84,7 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
     if aki.progression < 80:
         query.message.edit_text(
         TEEXT,
-            ),
-            reply_markup=AKI_PLAY_KEYBOARD
+        reply_markup=AKI_PLAY_KEYBOARD
         )
         context.user_data[f"aki_{user_id}"] = aki
         context.user_data[f"q_{user_id}"] = q
@@ -93,8 +92,7 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
         aki.win()
         aki = aki.first_guess
         query.message.edit_text(f"It's {aki['name']} ({aki['description']})! Was I correct?")
-            ),
-            reply_markup=AKI_WIN_BUTTON
+        reply_markup=AKI_WIN_BUTTON
         )
         del_data(context, user_id)
 
@@ -105,8 +103,7 @@ def aki_win(update: Update, context: CallbackContext):
     ans = query.data.split('_')[-1]
     if ans =='y':
         query.message.edit_text("gg!")
-            ),
-            reply_markup=None
+        reply_markup=None
         )
         updateCorrectGuess(user_id=user_id, correct_guess=1)
     else:
