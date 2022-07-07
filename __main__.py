@@ -48,7 +48,7 @@ def aki_find(update: Update, context: CallbackContext) -> None:
 def info(update: Update, context: CallbackContext): 
     update.message.reply_text(
         INFO_MSG,
-        parse_mode=ParseMode.MARKDOWN
+        parse_mode=ParseMode.MARKDOWN,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
