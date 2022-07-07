@@ -46,12 +46,8 @@ def aki_find(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f"Users : {total_users}")
 
 def info(update: Update, context: CallbackContext): 
-    update.message.reply_text("
-    /play - to start the investigation.
-    /language - select your own language.
-    /leaderboard - To see who's on the top.
-    *NOTE* leaderboard shows the global stats not only group stats.")
-
+    update.message.reply_text(
+    
 
 def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     #/play command.
