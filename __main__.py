@@ -136,7 +136,7 @@ def aki_win(update: Update, context: CallbackContext):
     query = update.callback_query
     ans = query.data.split('_')[-1]
     if ans =='y':
-        query.message.edit_text("Case solved, Now give me my money. Your Character detalis that you were finding")
+        query.message.edit_text("Case solved, Now give me my money. Your Character detalis that you were finding {aki['name']} ({aki['description']}")
         reply_markup=None
     
         updateCorrectGuess(user_id=user_id, correct_guess=1)
