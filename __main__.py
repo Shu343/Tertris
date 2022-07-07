@@ -57,6 +57,8 @@ def info(update: Update, context: CallbackContext):
                     ),
                 ] 
             ]
+
+
 def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     #/play command.
     aki = akinator.Akinator()
