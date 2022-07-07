@@ -45,6 +45,13 @@ def aki_find(update: Update, context: CallbackContext) -> None:
     total_users = totalUsers()
     update.message.reply_text(f"Users : {total_users}")
 
+def info(update: Update, context: CallbackContext): 
+    update.message.reply_text("
+    /play - to start the investigation.
+    /language - select your own language.
+    /leaderboard - To see who's on the top.
+    *NOTE* leaderboard shows the global stats not only group stats.")
+
 
 def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     #/play command.
@@ -202,6 +209,7 @@ def main():
     updater = Updater(token=BOT_TOKEN)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('start', aki_start, run_async=True))
+    dp.add_handler(CommandHandler('info', info, run_async=True))
     dp.add_handler(CommandHandler('find', aki_find, run_async=True))
     dp.add_handler(CommandHandler('me', aki_me, run_async=True))
     dp.add_handler(CommandHandler('play', aki_play_cmd_handler, run_async=True))
