@@ -36,7 +36,7 @@ def aki_start(update: Update, context: CallbackContext) -> None:
     #Adding user to the database.
     addUser(user_id, first_name, last_name, user_name)
     update.message.reply_text(START_MSG.format(first_name), 
-                              parse_mode=ParseMode.HTML, 
+                              parse_mode=ParseMode.MARKDOWN, 
                               )
 
 
