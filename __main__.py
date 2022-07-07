@@ -132,16 +132,26 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
 
 def aki_win(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
+    aki = context.user_data[f"aki_{user_id}"]
     query = update.callback_query
     ans = query.data.split('_')[-1]
     if ans =='y':
-        query.message.edit_text("Case solved, Now give me my money.")
+        query.message.edit_text("Case solved, Now give me my money. Your Character detalis that you were finding")
         reply_markup=None
     
         updateCorrectGuess(user_id=user_id, correct_guess=1)
     else:
-        query.message.edit_text("I think we miss something, lets investigate again"),
-        reply_markup=None
+        query.message.edit_text("I think we miss something, lets investigate again",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                    text="Let's see what we miss", callback_data="start_Game"
+                    ),
+                ] 
+            ]
+        )
+     )
         updateWrongGuess(user_id=user_id, wrong_guess=1)
 
 
