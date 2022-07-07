@@ -2,7 +2,6 @@ from os import cpu_count, terminal_size
 import akinator
 from telegram.files.inputmedia import InputMediaPhoto
 from random import randint
-from aiogram import Bot, Dispatcher, types, executor
 from pprint import pprint
 from RoundTable import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON
 from telegram import Update, ParseMode
@@ -109,14 +108,6 @@ def aki_win(update: Update, context: CallbackContext):
         query.message.edit_text("bruh :("),
         reply_markup=None
         updateWrongGuess(user_id=user_id, wrong_guess=1)
-
-@dp.message_handler(text=('Yes', 'No'))
-async def replay_handler(message: types.Message):
-    keyboard = types.ReplyKeyboardRemove()
-    if message.text == 'Yes':
-        await message.answer("Case solved, Now give me my money!", reply_markup=keyboard)
-    else:
-        await message.answer("I think we miss something lets check again", reply_markup=keyboard)
 
 
 def aki_me(update: Update, context: CallbackContext) -> None:
@@ -228,5 +219,4 @@ def main():
     updater.idle()
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
     main()
