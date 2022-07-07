@@ -1,8 +1,8 @@
 
 START_MSG = """
-Hello <b>{}</b> ! I'm <b>Tetris</b>.
-I'll guess your character by some questions.
-Do /play 
+I heard you have some work for me, then start with some question.. So i can find what you're looking for.
+Are you ready? do /play to start.
+Do language if you to give answers in your language.
 """
 
 ME_MSG = """
