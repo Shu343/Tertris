@@ -11,6 +11,7 @@ INFO_MSG = """
 /language - select your own language.
 /leaderboard - To see who's on the top.
 *NOTE* leaderboard shows the global stats not only group stats.
+Click on start investigation So i can ask you questions usely a shortcut.
 """
 
 
