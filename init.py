@@ -2,7 +2,7 @@
 START_MSG = """
 I heard you have some work for [me](https://telegra.ph/file/4008c23032e22eaef5a18.jpg), then start with some question.. So i can find what you're looking for.
 Are you ready? do /play to start.
-Do language if you to give answers in your language.
+Do language if you wanted to give answers in your language.
 """
 
 ME_MSG = """
