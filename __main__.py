@@ -26,8 +26,7 @@ from database import (
 from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
 import akinator
 
-bot = Bot(token=BOT_TOKEN)
-dp = Dispatcher(bot)
+
 
 def aki_start(update: Update, context: CallbackContext) -> None:
     #/start command.
