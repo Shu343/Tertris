@@ -49,8 +49,14 @@ def info(update: Update, context: CallbackContext):
     update.message.reply_text(
         INFO_MSG,
         parse_mode=ParseMode.MARKDOWN
-        )
-
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                    text="Start investigation", callback_data="aki_play_"
+                    ),
+                ] 
+            ]
 def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     #/play command.
     aki = akinator.Akinator()
