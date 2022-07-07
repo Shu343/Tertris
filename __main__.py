@@ -93,6 +93,10 @@ def start_Game(update: Update, context: CallbackContext):
                     reply_markup=AKI_PLAY_KEYBOARD
 
             )  
+    except BadRequest as excp:
+        if excp.message == "Message can't be edited":
+            pass
+
 
 
 def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
