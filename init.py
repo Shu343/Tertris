@@ -6,6 +6,7 @@ Do language if you wanted to give answers in your language.
 """
 
 INFO_MSG = """ 
+*IMPORTANT Message* Without doing /start command will not answers. 
 /play - to start the investigation.
 /language - select your own language.
 /leaderboard - To see who's on the top.
