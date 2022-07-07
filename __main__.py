@@ -23,7 +23,7 @@ from database import (
     updateTotalQuestions, 
     updateWrongGuess)
 
-from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
+from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, INFO_MSG, START_MSG
 import akinator
 
 
@@ -47,7 +47,9 @@ def aki_find(update: Update, context: CallbackContext) -> None:
 
 def info(update: Update, context: CallbackContext): 
     update.message.reply_text(
-    
+        INFO_MSG,
+        parse_mode=ParseMode.MARKDOWN
+        )
 
 def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
     #/play command.
