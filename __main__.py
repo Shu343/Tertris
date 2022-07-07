@@ -53,7 +53,7 @@ def info(update: Update, context: CallbackContext):
             [
                 [
                     InlineKeyboardButton(
-                    text="Start investigation", callback_data="aki_play_"
+                    text="Start investigation", callback_data="start_Game"
                     ),
                 ] 
             ]
@@ -75,6 +75,24 @@ def aki_play_cmd_handler(update: Update, context: CallbackContext) -> None:
         q,
         reply_markup=AKI_PLAY_KEYBOARD
         )
+
+
+def start_Game(update: Update, context: CallbackContext):
+    try:
+        query = update.callback_query
+        if query.data == "start_Game":
+            aki = akinator.Akinator()
+            user_id = update.effective_user.id
+            updateTotalGuess(user_id, total_guess=1)
+            q = aki.start_game(language=getLanguage(user_id))
+            context.user_data[f"aki_{user_id}"] = aki
+            context.user_data[f"q_{user_id}"] = q
+            context.user_data[f"ques_{user_id}"] = 1
+            query.message.edit_text(
+                    q,
+                    reply_markup=AKI_PLAY_KEYBOARD
+
+            )  
 
 
 def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
@@ -225,6 +243,7 @@ def main():
     dp.add_handler(CommandHandler('leaderboard', aki_lead, run_async=True))
 
     dp.add_handler(CallbackQueryHandler(aki_set_lang, pattern=r"aki_set_lang_", run_async=True))
+    dp.add_handler(CallbackQueryHandler(start_Game, pattern=r"start_Game", run_async=True))
     dp.add_handler(CallbackQueryHandler(aki_play_callback_handler, pattern=r"aki_play_", run_async=True))
     dp.add_handler(CallbackQueryHandler(aki_win, pattern=r"aki_win_", run_async=True))
     dp.add_handler(CallbackQueryHandler(aki_lead_cb_handler, pattern=r"aki_lead_", run_async=True))
