@@ -89,9 +89,9 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
     else:
         aki.win()
         aki = aki.first_guess
-        query.message.edit_text(f"It's {aki['name']} ({aki['description']})! Was I correct?"
+        query.message.edit_text(f"It's {aki['name']} ({aki['description']})! Was I correct?",
         reply_markup=AKI_WIN_BUTTON
-        ),
+        )
 
 def aki_win(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
