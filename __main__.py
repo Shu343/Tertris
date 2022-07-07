@@ -2,6 +2,7 @@ from os import cpu_count, terminal_size
 import akinator
 from telegram.files.inputmedia import InputMediaPhoto
 from random import randint
+from aiogram Bot, Dispatcher
 from pprint import pprint
 from RoundTable import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON
 from telegram import Update, ParseMode
@@ -26,6 +27,8 @@ from database import (
 from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, START_MSG
 import akinator
 
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher(bot)
 
 def aki_start(update: Update, context: CallbackContext) -> None:
     #/start command.
@@ -106,6 +109,7 @@ def aki_win(update: Update, context: CallbackContext):
         query.message.edit_text("bruh :("),
         reply_markup=None
         updateWrongGuess(user_id=user_id, wrong_guess=1)
+
 
 
 def aki_me(update: Update, context: CallbackContext) -> None:
