@@ -132,7 +132,7 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
 
 def aki_win(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
-    aki = context.user_data[f"aki_{user_id}"]
+    aki = aki.first_guess
     query = update.callback_query
     ans = query.data.split('_')[-1]
     if ans =='y':
