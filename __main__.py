@@ -110,6 +110,13 @@ def aki_win(update: Update, context: CallbackContext):
         reply_markup=None
         updateWrongGuess(user_id=user_id, wrong_guess=1)
 
+@dp.message_handler(text=('Yes', 'No'))
+async def replay_handler(message: types.Message):
+    keyboard = types.ReplyKeyboardRemove()
+    if message.text == 'Yeah, You are right':
+        await message.answer("Case solved, Now give me my money!", reply_markup=keyboard)
+    else:
+        await message.answer("I think we miss something lets check again", reply_markup=keyboard)
 
 
 def aki_me(update: Update, context: CallbackContext) -> None:
