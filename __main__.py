@@ -2,7 +2,7 @@ from os import cpu_count, terminal_size
 import akinator
 from telegram.files.inputmedia import InputMediaPhoto
 from random import randint
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher, types, executor
 from pprint import pprint
 from RoundTable import AKI_LANG_BUTTON, AKI_LEADERBOARD_KEYBOARD, AKI_PLAY_KEYBOARD, AKI_WIN_BUTTON, CHILDMODE_BUTTON
 from telegram import Update, ParseMode
@@ -228,4 +228,5 @@ def main():
     updater.idle()
 
 if __name__ == '__main__':
+    executor.start_polling(dp, skip_updates=True)
     main()
