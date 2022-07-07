@@ -5,6 +5,14 @@ Are you ready? do /play to start.
 Do language if you wanted to give answers in your language.
 """
 
+INFO_MSG = """ 
+/play - to start the investigation.
+/language - select your own language.
+/leaderboard - To see who's on the top.
+*NOTE* leaderboard shows the global stats not only group stats.
+"""
+
+
 ME_MSG = """
 <b>Name :</b> <code>{}</code>
 <b>User Name :</b> <code>{}</code>
