@@ -1,5 +1,4 @@
 from os import cpu_count, terminal_size
-import json
 import akinator
 from telegram.files.inputmedia import InputMediaPhoto
 from random import randint
@@ -120,7 +119,6 @@ def start_Game(update: Update, context: CallbackContext):
 
 def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
     user_id = update.effective_user.id
-    cq = json.loads(str(c_q))
     user = cq['from_user']['id']
     aki = context.user_data[f"aki_{user_id}"]
     q = context.user_data[f"q_{user_id}"]
@@ -144,11 +142,6 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
         )
         context.user_data[f"aki_{user_id}"] = aki
         context.user_data[f"q_{user_id}"] = q
-    elif:
-         await c_q.answer(
-             "Not your query!!!",
-               show_alert=True,
-          )
     else:
         aki.win()
         aki = aki.first_guess
