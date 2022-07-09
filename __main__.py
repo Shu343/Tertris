@@ -271,7 +271,7 @@ def main():
     dp.add_handler(CommandHandler('me', aki_me, run_async=True))
     dp.add_handler(CommandHandler('play', aki_play_cmd_handler, run_async=True))
     dp.add_handler(CommandHandler('language', aki_lang, run_async=True))
-    dp.add_handler(CommandHandler('help', help, run_async=Trur))
+    dp.add_handler(CommandHandler('help', help, run_async=True))
     dp.add_handler(CommandHandler('leaderboard', aki_lead, run_async=True))
 
     dp.add_handler(CallbackQueryHandler(aki_set_lang, pattern=r"aki_set_lang_", run_async=True))
