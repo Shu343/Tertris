@@ -23,7 +23,7 @@ from database import (
     updateTotalQuestions, 
     updateWrongGuess)
 
-from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, INFO_MSG, START_MSG
+from init import AKI_FIRST_QUESTION, AKI_LANG_CODE, AKI_LANG_MSG, CHILDMODE_MSG, ME_MSG, INFO_MSG, ENG_HELP, START_MSG
 import akinator
 
 
@@ -44,6 +44,24 @@ def aki_start(update: Update, context: CallbackContext) -> None:
 def aki_find(update: Update, context: CallbackContext) -> None:
     total_users = totalUsers()
     update.message.reply_text(f"Users : {total_users}")
+
+def help(update: Update, context: CallbackContext):
+    update.message.reply_text(
+     ENG_HELP,
+     parse_mode=ParseMode.MARKDOWN,
+     reply_markup=InlineKeyboardMarup(
+         [
+             [
+                 InlineKeyboardButton(
+                 text="Start Investigation", callback_data="start_Game"
+                 ),
+                 InlineKeyboardButton(
+                 text="Commands Info", callback_data="Info_IG"
+                 ),        
+             ]
+         ]
+      )
+    )  
 
 def info(update: Update, context: CallbackContext): 
     update.message.reply_text(
@@ -253,6 +271,7 @@ def main():
     dp.add_handler(CommandHandler('me', aki_me, run_async=True))
     dp.add_handler(CommandHandler('play', aki_play_cmd_handler, run_async=True))
     dp.add_handler(CommandHandler('language', aki_lang, run_async=True))
+    dp.add_handler(CommandHandler('help', help, run_async=Trur))
     dp.add_handler(CommandHandler('leaderboard', aki_lead, run_async=True))
 
     dp.add_handler(CallbackQueryHandler(aki_set_lang, pattern=r"aki_set_lang_", run_async=True))
