@@ -5,6 +5,12 @@ Are you ready? do /play to start.
 Do language if you wanted to give answers in your language.
 """
 
+ENG_HELP = """
+If you where don't know the char name that you saw but you know what he looks like then, This bot will ask you some questions and give you that char detail 
+As a detective This is my work. 
+If you found any bug in the bot then contact @Dainkawa my developer.
+""""
+
 INFO_MSG = """ 
 *IMPORTANT Message* Without doing /start command bot will not ask you questions. 
 /play - to start the investigation.
