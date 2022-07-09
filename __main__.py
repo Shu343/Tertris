@@ -49,7 +49,7 @@ def help(update: Update, context: CallbackContext):
     update.message.reply_text(
      ENG_HELP,
      parse_mode=ParseMode.MARKDOWN,
-     reply_markup=InlineKeyboardMarup(
+     reply_markup=InlineKeyboardMarkup(
          [
              [
                  InlineKeyboardButton(
