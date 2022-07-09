@@ -144,18 +144,17 @@ def aki_play_callback_handler(update: Update, context:CallbackContext) -> None:
         )
         context.user_data[f"aki_{user_id}"] = aki
         context.user_data[f"q_{user_id}"] = q
+    elif:
+         await c_q.answer(
+             "Not your query!!!",
+               show_alert=True,
+          )
     else:
         aki.win()
         aki = aki.first_guess
         query.message.edit_text(f"It's {aki['name']} ({aki['description']})! Was I correct?",
         reply_markup=AKI_WIN_BUTTON
         )
-    elif:
-         await c_q.answer(
-             "Not your query!!!",
-               show_alert=True,
-          )
-         return 
 
 def aki_win(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
