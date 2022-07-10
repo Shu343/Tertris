@@ -47,7 +47,6 @@ def aki_find(update: Update, context: CallbackContext) -> None:
 
 def help(update: Update, context: CallbackContext):
     update.message.reply_text(
-     user.id,
      ENG_HELP,
      parse_mode=ParseMode.MARKDOWN,
      reply_markup=InlineKeyboardMarkup(
@@ -62,13 +61,7 @@ def help(update: Update, context: CallbackContext):
              ]
          ]
       )
-    ),  
-else:
-    dispatcher.bot.send_message(
-        user_id,
-        "Seems like there aren't any user specific settings available :'(",
-         parse_mode=ParseMode.MARKDOWN,
-    )    
+    )
 
 def info(update: Update, context: CallbackContext): 
     update.message.reply_text(
