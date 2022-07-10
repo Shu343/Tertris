@@ -63,11 +63,11 @@ def help(update: Update, context: CallbackContext):
       )
     )  
 
-else:
-    user_id = extract_user(message, args)
-    if not user_id:
-    message.reply_text("You don't seem to be referring to a user.")
-    return
+    else:
+        user_id = extract_user(message, args)
+        if not user_id:
+        message.reply_text("You don't seem to be referring to a user.")
+        return
 
 def info(update: Update, context: CallbackContext): 
     update.message.reply_text(
